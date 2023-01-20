@@ -1,0 +1,21 @@
+{
+    "name": "Leetcode Crawler",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+        "default_title": "Click to open leetcode Crawler",
+        "default_popup": "index.html"
+      },
+      "background": {
+        "service_worker": "background.js"
+      },
+      "permissions": [
+        "activeTab"
+        
+      ],
+
+    "host_permissions": [
+      "https://www.leetcode.com/*",
+      "http://localhost:8080/*"
+    ]
+  }
