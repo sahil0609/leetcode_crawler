@@ -1,20 +1,22 @@
 <html>
     <head>
-        <link rel="stylesheet" href="popup.css">
+        <link rel="stylesheet" href="css/all.min.css">
+        <link rel="stylesheet" href="css/popup.css">
     </head>
     <body>
-        <div class="sync">
-            <button id = "sync_button">sync</button>
-        </div>
-        
-        <div class="login">
-            <div class="username">
-                <label>Username</label>
-                <input type="email" placeholder="xyz@example.com">
+        <div class="container">
+            <div class="sync hide">
+                <p class="title"> Sync Now</p>
+                <button id = "sync_button"><i class="fas fa-sync"></i></button>
             </div>
-            <div class="password">
-                <label>Password</label>
-                <input type="password" placeholder="passeord">
+            
+            <div class="login">
+                <p class="title">Log in </p>
+                <form class="login_form">
+                    <input id = "username" type="email" placeholder="Username" autofocus>
+                    <input id = "password" type="password" placeholder="password">
+                    <button id="login_button"><span>Log in</span></button>
+                </form>
             </div>
         </div>
         
