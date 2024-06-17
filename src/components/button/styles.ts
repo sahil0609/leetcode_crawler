@@ -7,6 +7,7 @@ color: white;
 margin: 2px 0 2px 0;
 border-radius: 15%;
 cursor: pointer;
+padding:0.2rem;
 
 
 &:hover {

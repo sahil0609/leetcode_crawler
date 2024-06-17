@@ -15,8 +15,12 @@ export const LoginPage = () => {
 
     return (
         <S.LoginPageWrapper>
-            <S.LoginPageButton value='sign in' onClick={openLoginPage} />
-            <S.LoginPageButton value = "sign up" onClick={openSignUpPage} />
+            <S.LoginPageButton onClick={openLoginPage}>
+                    sign in
+                </S.LoginPageButton>
+            <S.LoginPageButton  onClick={openSignUpPage} >
+                    sign up
+                </S.LoginPageButton>
         </S.LoginPageWrapper>
     )
 
