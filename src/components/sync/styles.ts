@@ -19,6 +19,15 @@ height: 6rem;
 width: 6rem;
 border: none;
 pointer-events: ${(props) => props.$disabled ?"none": null};
+
+svg {
+    transition: transform 0.5s;
+}
+
+&:hover svg {
+    transform: rotate(45deg);
+}
+
 `
 
 

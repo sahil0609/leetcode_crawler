@@ -16,13 +16,12 @@ position: relative;
 
 export const SettingsDropDown = styled.div<{$display: boolean}>`
 position: absolute;
-min-width: 4rem;
+min-width: 10rem;
 background-color: orange;
-left: -5rem;
-min-height: 2rem;
+right: 0;
 display: flex;
 flex-direction: column;
-padding: 0.5rem 0.2rem;
+padding: 0 0.2rem 0.5rem 0.2rem;
 
 `
 
