@@ -1,42 +1,51 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import SimpleButton from '../button'
-import * as S from './styles'
-import { faGear } from '@fortawesome/free-solid-svg-icons'
-import CheckBox from '../checkbox'
-import { useState } from 'react'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import SimpleButton from "../button";
+import * as S from "./styles";
+import { faGear } from "@fortawesome/free-solid-svg-icons";
+import CheckBox from "../checkbox";
+import { useState } from "react";
+import { useAuthContext } from "../../contexts/AuthContext/AuthContextProvider";
+import { useSettingContext } from "../../contexts/settingsContext/SettingsContextProvider";
 
-export const Navbar =  () => {
+export const Navbar = () => {
+    //get the authContext
+    const {isLogin, logout} = useAuthContext()
+    const settingContext = useSettingContext()
 
-    const logoutFn = () => {
-        console.log("should you be doing this ?")
+    const [showDropDown, setShowDropDown] = useState(false);
+   
+    const toggleDropDown = () => {
+        setShowDropDown(s => !s)
     }
 
-    const darkModeFn = () => {
-        console.log("dark mode toggle");
-    }
-
-    const [check, setCheck] = useState(false)
-
-    const toggleCheck = () => {
-        setCheck(s => !s)
-    }
+    const toggledarkMode = () => {settingContext.setDarkTheme(s => !s)}
+    const toggleautoSync = () => {settingContext.setautoSync(s => !s)}
+   
 
 
-    return (
-        <S.NavbarWrapper>
-            <SimpleButton onClick={logoutFn}>
-                    logout
-            </SimpleButton> 
-            <S.SettingWrapper>
-                <SimpleButton onClick={darkModeFn}>
-                    <FontAwesomeIcon icon={faGear}/>
-                </SimpleButton>
-                <S.SettingsDropDown $display={true}>
-                    <CheckBox value='dark mode' checked={check} toggleCheck={toggleCheck}></CheckBox>
-                    <CheckBox value='auto sync' checked={true} toggleCheck={logoutFn}></CheckBox>
-                </S.SettingsDropDown>
 
-            </S.SettingWrapper>
-        </S.NavbarWrapper>
-    )
-}
+  return (
+    <S.NavbarWrapper> 
+
+      {isLogin ? <SimpleButton onClick={logout}>logout</SimpleButton> : null}
+
+      <S.SettingWrapper>
+        <SimpleButton onClick={toggleDropDown}>
+          <FontAwesomeIcon icon={faGear} />
+        </SimpleButton>
+        <S.SettingsDropDown $display={showDropDown}>
+          <CheckBox
+            value="dark mode"
+            checked={settingContext.darkTheme}
+            toggleCheck={toggledarkMode}
+          ></CheckBox>
+          <CheckBox
+            value="auto sync"
+            checked={settingContext.autoSync}
+            toggleCheck={toggleautoSync}
+          ></CheckBox>
+        </S.SettingsDropDown>
+      </S.SettingWrapper>
+    </S.NavbarWrapper>
+  );
+};

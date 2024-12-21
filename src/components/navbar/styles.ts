@@ -18,8 +18,8 @@ export const SettingsDropDown = styled.div<{$display: boolean}>`
 position: absolute;
 min-width: 10rem;
 background-color: orange;
-right: 0;
-display: flex;
+right: 0.2rem;
+display: ${(prop) => prop.$display ? 'flex': 'none'};
 flex-direction: column;
 padding: 0 0.2rem 0.5rem 0.2rem;
 

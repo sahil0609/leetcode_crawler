@@ -1,4 +1,3 @@
-import SimpleButton from '../button'
 import * as S from './styles'
 
 export const LoginPage = () => {

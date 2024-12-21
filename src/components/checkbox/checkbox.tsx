@@ -18,7 +18,7 @@ export const CheckBox: React.FC<ICheckBox> = (props) => {
         <S.checkBoxWrapper>
             <S.checkBoxLabel>{props.value}</S.checkBoxLabel>
             <S.checkBoxDiv onClick={toggleCheck}>
-                <input type='checkbox' checked={props.checked}/>
+                <input type='checkbox' checked={props.checked} readOnly/>
                 <span></span>
             </S.checkBoxDiv>
         </S.checkBoxWrapper>

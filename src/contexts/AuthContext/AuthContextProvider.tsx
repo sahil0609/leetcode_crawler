@@ -4,7 +4,7 @@ interface IAuthContext {
     username: string | undefined,
     setUsername(username: string) : void
     isLogin: boolean,
-    toggleIsLogin(): void
+    logout(): void
 }
 
 
@@ -25,17 +25,18 @@ const useAuthContext = () : IAuthContext => {
 const AuthContextProvider: React.FC<{children?: React.ReactNode }> = (props) => {
 
     const [username, setUsername] = useState<string>()
-    const [isLogin, setIsLogin] = useState(false)
+    const [isLogin, setIsLogin] = useState(true)
 
-    const toggleIsLogin = () => {
-        setIsLogin((a) => !a)
+    const logout = () => {
+        //TODO expire the token
+        setIsLogin(false)
     }
 
     const value = {
         username, 
         setUsername,
         isLogin,
-        toggleIsLogin
+        logout
     };
     
     return <AuthContext.Provider value={value} {...props} />
